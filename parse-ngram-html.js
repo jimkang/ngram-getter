@@ -5,7 +5,7 @@ function parseNgramHTML(html) {
   var $ = cheerio.load(html);
 
   var content = $('meta[itemprop=description]').attr('content');
-  
+
   return content.match(bracketsRegex)
     .map(chopOffEnds)
     .map(ngramsFromNgramsString);
@@ -13,7 +13,7 @@ function parseNgramHTML(html) {
 
 function chopOffEnds(s) {
   if (s.length > 1) {
-    return s.slice(1, s.length - 2);
+    return s.slice(1, s.length - 1);
   }
   else {
     return s;
