@@ -40,7 +40,7 @@ Output:
           "word": "your"
         },
         {
-          "word": "sock"
+          "word": "socks"
         }
       ],
       [
@@ -52,7 +52,7 @@ Output:
           "word": "your"
         },
         {
-          "word": "sock"
+          "word": "socks"
         }
       ],
       [
@@ -64,7 +64,7 @@ Output:
           "word": "your"
         },
         {
-          "word": "sock"
+          "word": "socks"
         }
       ],
     ...
