@@ -1,11 +1,7 @@
 ngram-getter
-==================
+============
 
-This module is for something or other. For example:
-
-    code and what not
-
-Etc.!
+This is an ad hoc programmatic interface to the [Google Books Ngram Viewer](https://books.google.com/ngrams/).
 
 Installation
 ------------
@@ -15,11 +11,67 @@ Installation
 Usage
 -----
 
-    var someFactory = require('ngram-getter');
-    var thing = someFactory();
-    thing.use();
+As a module:
 
-Success!
+    var opts = {
+      phrases: '*_VERB your socks'
+    };
+
+    getNgrams(opts, displayResults);
+
+    function displayResults(error, ngrams) {
+      if (error) {
+        console.log(error);
+      }
+      else {
+        console.log(JSON.stringify(ngrams, null, '  '));
+      }
+    }
+
+Output:
+
+    [
+      [
+        {
+          "word": "change",
+          "pos": "verb"
+        },
+        {
+          "word": "your"
+        },
+        {
+          "word": "sock"
+        }
+      ],
+      [
+        {
+          "word": "knock",
+          "pos": "verb"
+        },
+        {
+          "word": "your"
+        },
+        {
+          "word": "sock"
+        }
+      ],
+      [
+        {
+          "word": "darn",
+          "pos": "verb"
+        },
+        {
+          "word": "your"
+        },
+        {
+          "word": "sock"
+        }
+      ],
+    ...
+
+As a command line tool (from the project root):
+
+    node tools/run-get-ngrams.js -p "*_VERB your socks"
 
 Tests
 -----
