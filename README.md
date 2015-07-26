@@ -13,6 +13,8 @@ Usage
 
 As a module:
 
+    var getNgrams = require('ngram-getter');
+
     var opts = {
       phrases: '*_VERB your socks'
     };
