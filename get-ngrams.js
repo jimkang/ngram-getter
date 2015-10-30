@@ -18,14 +18,19 @@ function getNgrams(opts, done) {
 
   var requestOpts = {
     url: 'https://books.google.com/ngrams/graph',
-    qs: _.defaults(_.omit(opts, 'phrases'), defaultOpts)
+    qs: _.defaults(_.omit(opts, 'phrases'), defaultOpts),
+    headers: {
+      'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36'
+    },
+    maxRedirects: 1
   };
+
   requestOpts.qs.content = opts.phrases;
 
   request(requestOpts, parseResponse);
 
   function parseResponse(error, response, body) {
-    if (error) {
+    if (error || !body) {
       done(error);
     }
     else {
