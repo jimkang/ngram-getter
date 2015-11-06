@@ -1,6 +1,6 @@
 {
   "name": "ngram-getter",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "This is an ad hoc programmatic interface to the Google Books Ngram Viewer.",
   "main": "get-ngrams.js",
   "scripts": {
