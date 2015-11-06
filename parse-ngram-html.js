@@ -6,9 +6,10 @@ function parseNgramHTML(html) {
 
   var content = $('meta[itemprop=description]').attr('content');
 
-  return content.match(bracketsRegex)
-    .map(chopOffEnds)
-    .map(ngramsFromNgramsString);
+  var bracketedString = content.match(bracketsRegex)
+  if (bracketedString) {
+    return bracketedString.map(chopOffEnds).map(ngramsFromNgramsString);
+  }
 }
 
 function chopOffEnds(s) {

@@ -3,6 +3,7 @@ var parseNgramHTML = require('../parse-ngram-html');
 var fs = require('fs');
 
 var ngramHTML = fs.readFileSync(__dirname + '/data/ngram.html');
+var noResultsHTML = fs.readFileSync(__dirname + '/data/no-results.html');
 
 test('Parse test', function parseTest(t) {
   t.plan(1);
@@ -135,4 +136,11 @@ test('Parse test', function parseTest(t) {
     ],
     'The correct ngrams are returned.'
   );
+});
+
+test('Null test', function parseTest(t) {
+  t.plan(1);
+
+  var ngrams = parseNgramHTML(noResultsHTML);
+  t.deepEqual(ngrams, undefined, 'No ngrams are returned, without crashing.');
 });
