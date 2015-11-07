@@ -138,9 +138,16 @@ test('Parse test', function parseTest(t) {
   );
 });
 
-test('Null test', function parseTest(t) {
+test('No results test', function noResultsTest(t) {
   t.plan(1);
 
   var ngrams = parseNgramHTML(noResultsHTML);
+  t.deepEqual(ngrams, undefined, 'No ngrams are returned, without crashing.');
+});
+
+test('Empty test', function emptyTest(t) {
+  t.plan(1);
+
+  var ngrams = parseNgramHTML('');
   t.deepEqual(ngrams, undefined, 'No ngrams are returned, without crashing.');
 });
