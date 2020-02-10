@@ -23,8 +23,8 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
     "defaults": "^1.0.3",
+    "lodash.omit": "^4.5.0",
     "nomnom": "^1.8.1",
-    "omit": "^1.0.1",
     "request": "^2.60.0"
   }
 }
