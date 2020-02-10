@@ -18,12 +18,13 @@
   },
   "homepage": "https://github.com/jimkang/ngram-getter",
   "devDependencies": {
-    "tape": "^3.0.3"
+    "tape": "^4.13.0"
   },
   "dependencies": {
     "cheerio": "^0.19.0",
-    "lodash": "^3.10.0",
+    "defaults": "^1.0.3",
     "nomnom": "^1.8.1",
+    "omit": "^1.0.1",
     "request": "^2.60.0"
   }
 }

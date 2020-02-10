@@ -1,4 +1,5 @@
-var _ = require('lodash');
+var defaults = require('lodash.defaults');
+var omit = require('lodash.omit');
 var parseNgramHTML = require('./parse-ngram-html');
 var request = require('request');
 
@@ -18,9 +19,10 @@ function getNgrams(opts, done) {
 
   var requestOpts = {
     url: 'https://books.google.com/ngrams/graph',
-    qs: _.defaults(_.omit(opts, 'phrases'), defaultOpts),
+    qs: defaults(omit(opts, 'phrases'), defaultOpts),
     headers: {
-      'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36'
+      'User-Agent':
+        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36'
     },
     maxRedirects: 1
   };
@@ -32,8 +34,7 @@ function getNgrams(opts, done) {
   function parseResponse(error, response, body) {
     if (error || !body) {
       done(error);
-    }
-    else {
+    } else {
       done(error, parseNgramHTML(body));
     }
   }
